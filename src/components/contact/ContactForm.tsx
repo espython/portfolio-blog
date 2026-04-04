@@ -64,12 +64,20 @@ export function ContactForm() {
     if (Object.keys(validationErrors).length > 0) return
 
     setStatus('submitting')
-    // Submission will be wired in #62
-    await new Promise((r) => setTimeout(r, 800))
-    setStatus('success')
-    setFields(EMPTY)
-    setTouched({})
-    setErrors({})
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setStatus('success')
+      setFields(EMPTY)
+      setTouched({})
+      setErrors({})
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
