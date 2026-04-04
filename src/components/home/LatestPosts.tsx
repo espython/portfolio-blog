@@ -1,33 +1,6 @@
 import Link from 'next/link'
 
-import { type PostMeta } from '@/types/post'
-
-const LATEST_POSTS: PostMeta[] = [
-  {
-    slug: 'getting-started-with-nextjs-15',
-    title: 'Getting Started with Next.js 15',
-    date: '2026-03-20',
-    summary:
-      'A deep dive into what changed in Next.js 15 — new APIs, breaking changes, and how to migrate your existing app.',
-    tags: ['Next.js', 'React'],
-  },
-  {
-    slug: 'mastering-tailwind-css-v4',
-    title: 'Mastering Tailwind CSS v4',
-    date: '2026-03-10',
-    summary:
-      'Tailwind v4 rewrites the engine from scratch. Here is what the new CSS-first config means for your workflow.',
-    tags: ['CSS', 'Tailwind'],
-  },
-  {
-    slug: 'typescript-tips-for-react-devs',
-    title: 'TypeScript Tips for React Developers',
-    date: '2026-02-28',
-    summary:
-      'Practical patterns I use daily: discriminated unions, generic components, and avoiding the any escape hatch.',
-    tags: ['TypeScript', 'React'],
-  },
-]
+import { getAllPostsMeta } from '@/lib/posts'
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', {
@@ -38,6 +11,8 @@ function formatDate(iso: string) {
 }
 
 export function LatestPosts() {
+  const posts = getAllPostsMeta().slice(0, 3)
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-10 flex items-end justify-between">
@@ -58,7 +33,7 @@ export function LatestPosts() {
       </div>
 
       <ul className="divide-y divide-[var(--color-border)]">
-        {LATEST_POSTS.map((post) => (
+        {posts.map((post) => (
           <li key={post.slug} className="group py-6">
             <Link href={`/blog/${post.slug}`} className="block">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-6">
