@@ -43,6 +43,22 @@
   --color-text-subtle: var(--color-text-subtle);
 }
 
+/* ── Syntax highlighting (rehype-pretty-code) ───────────────── */
+[data-rehype-pretty-code-figure] pre {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  border: 1px solid var(--color-border);
+}
+
+[data-rehype-pretty-code-figure] code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
 /* ── Base ───────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
