@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </header>
 
       <article
-        className="prose prose-neutral max-w-none dark:prose-invert"
+        className="prose max-w-none"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 

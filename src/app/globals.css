@@ -43,6 +43,25 @@
   --color-text-subtle: var(--color-text-subtle);
 }
 
+/* ── Prose (blog post body) ─────────────────────────────────── */
+.prose {
+  --tw-prose-body: var(--color-text);
+  --tw-prose-headings: var(--color-text);
+  --tw-prose-lead: var(--color-text-muted);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-bold: var(--color-text);
+  --tw-prose-counters: var(--color-text-muted);
+  --tw-prose-bullets: var(--color-text-muted);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-text);
+  --tw-prose-quote-borders: var(--color-primary);
+  --tw-prose-captions: var(--color-text-subtle);
+  --tw-prose-code: var(--color-text);
+  --tw-prose-pre-bg: var(--color-bg-subtle);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+}
+
 /* ── Syntax highlighting (rehype-pretty-code) ───────────────── */
 [data-rehype-pretty-code-figure] pre {
   padding: 1.25rem 1.5rem;
