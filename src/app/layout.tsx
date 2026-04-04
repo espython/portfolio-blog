@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 
@@ -14,6 +14,15 @@ const inter = Inter({
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://espython.dev'
 const SITE_NAME = 'Eslam Mahmoud'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fafaff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0f' },
+  ],
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

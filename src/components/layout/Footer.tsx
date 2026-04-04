@@ -2,8 +2,7 @@ import Link from 'next/link'
 
 const SOCIAL_LINKS = [
   { href: 'https://github.com/espython', label: 'GitHub' },
-  { href: 'https://linkedin.com/in/yourname', label: 'LinkedIn' },
-  { href: 'https://twitter.com/yourname', label: 'Twitter' },
+  { href: 'https://www.linkedin.com/in/eslam-mahmoud-a63b06116/', label: 'LinkedIn' },
 ]
 
 const NAV_LINKS = [
@@ -26,10 +25,10 @@ export function Footer() {
               href="/"
               className="text-base font-bold text-[var(--color-primary)] hover:opacity-80"
             >
-              YourName.dev
+              espython.dev
             </Link>
             <p className="mt-1 text-xs text-[var(--color-text-subtle)]">
-              Building things on the web.
+              Full Stack Engineer · Luxor, Egypt
             </p>
           </div>
 
@@ -65,7 +64,7 @@ export function Footer() {
         </div>
 
         <p className="mt-8 text-xs text-[var(--color-text-subtle)]">
-          © {year} YourName.dev — Built with Next.js & Tailwind CSS
+          © {year} Eslam Mahmoud — Built with Next.js &amp; Tailwind CSS
         </p>
       </div>
     </footer>
