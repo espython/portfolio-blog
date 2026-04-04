@@ -4,6 +4,7 @@ export interface PostMeta {
   date: string
   summary: string
   tags: string[]
+  readingTime: number
 }
 
 export interface Post extends PostMeta {

@@ -18,12 +18,11 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
   return (
     <article className="group flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-shadow hover:shadow-md">
       <Link href={`/blog/${post.slug}`} className="flex flex-1 flex-col">
-        <time
-          dateTime={post.date}
-          className="mb-2 text-xs font-medium text-[var(--color-text-subtle)]"
-        >
-          {formatDate(post.date)}
-        </time>
+        <div className="mb-2 flex items-center gap-2 text-xs text-[var(--color-text-subtle)]">
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <span>·</span>
+          <span>{post.readingTime} min read</span>
+        </div>
         <h3 className="mb-2 text-lg font-semibold text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
           {post.title}
         </h3>

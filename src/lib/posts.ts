@@ -11,6 +11,12 @@ import rehypeStringify from 'rehype-stringify'
 import { type Post, type PostMeta } from '@/types/post'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
+const WORDS_PER_MINUTE = 200
+
+function calcReadingTime(text: string): number {
+  const words = text.trim().split(/\s+/).length
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE))
+}
 
 function getPostFiles(): string[] {
   if (!fs.existsSync(postsDirectory)) return []
@@ -24,7 +30,7 @@ export function getAllPostsMeta(): PostMeta[] {
     const slug = filename.replace(/\.md$/, '')
     const fullPath = path.join(postsDirectory, filename)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-    const { data } = matter(fileContents)
+    const { data, content } = matter(fileContents)
 
     return {
       slug,
@@ -32,6 +38,7 @@ export function getAllPostsMeta(): PostMeta[] {
       date: data.date as string,
       summary: data.summary as string,
       tags: (data.tags as string[]) ?? [],
+      readingTime: calcReadingTime(content),
     }
   })
 
@@ -66,6 +73,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     date: data.date as string,
     summary: data.summary as string,
     tags: (data.tags as string[]) ?? [],
+    readingTime: calcReadingTime(content),
     contentHtml,
   }
 }

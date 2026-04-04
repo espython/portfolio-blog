@@ -61,9 +61,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-[var(--color-text)] sm:text-5xl">
           {post.title}
         </h1>
-        <time dateTime={post.date} className="mt-4 block text-sm text-[var(--color-text-subtle)]">
-          {formatDate(post.date)}
-        </time>
+        <div className="mt-4 flex items-center gap-2 text-sm text-[var(--color-text-subtle)]">
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <span>·</span>
+          <span>{post.readingTime} min read</span>
+        </div>
         <p className="mt-4 text-lg text-[var(--color-text-muted)]">{post.summary}</p>
       </header>
 
