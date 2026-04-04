@@ -6,6 +6,12 @@ import { getAllPostsMeta } from '@/lib/posts'
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Thoughts on web development, TypeScript, and building things.',
+  openGraph: {
+    url: '/blog',
+    title: 'Blog — Eslam Mahmoud',
+    description:
+      'Thoughts on web development, TypeScript, React, and things I learn along the way.',
+  },
 }
 
 export default function BlogPage() {

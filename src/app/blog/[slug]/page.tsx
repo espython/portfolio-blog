@@ -19,6 +19,15 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.summary,
+    openGraph: {
+      url: `/blog/${slug}`,
+      title: post.title,
+      description: post.summary,
+      type: 'article',
+      publishedTime: post.date,
+      tags: post.tags,
+    },
+    twitter: { card: 'summary_large_image', title: post.title, description: post.summary },
   }
 }
 

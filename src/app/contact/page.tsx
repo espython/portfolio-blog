@@ -5,6 +5,12 @@ import { ContactForm } from '@/components/contact/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Get in touch with Eslam Mahmoud — open to new opportunities and collaborations.',
+  openGraph: {
+    url: '/contact',
+    title: 'Contact — Eslam Mahmoud',
+    description:
+      'Get in touch — open to new opportunities, collaborations, or a friendly chat about tech.',
+  },
 }
 
 export default function ContactPage() {

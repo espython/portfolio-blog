@@ -19,6 +19,16 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.description,
+    openGraph: {
+      url: `/projects/${slug}`,
+      title: project.title,
+      description: project.description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.description,
+    },
   }
 }
 
