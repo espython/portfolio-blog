@@ -12,12 +12,35 @@ const inter = Inter({
   display: 'swap',
 })
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://espython.dev'
+const SITE_NAME = 'Eslam Mahmoud'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'YourName.dev',
-    template: '%s | YourName.dev',
+    default: `${SITE_NAME} — Full Stack Engineer`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: 'Full-stack developer portfolio and blog.',
+  description:
+    'Full Stack Software Engineer with 6+ years of experience building scalable web and mobile applications with React, Node.js, and AWS.',
+  authors: [{ name: SITE_NAME }],
+  keywords: ['Full Stack Engineer', 'React', 'TypeScript', 'Node.js', 'AWS', 'Next.js'],
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_US',
+    url: SITE_URL,
+    title: `${SITE_NAME} — Full Stack Engineer`,
+    description:
+      'Full Stack Software Engineer with 6+ years of experience building scalable web and mobile applications.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_NAME} — Full Stack Engineer`,
+    description:
+      'Full Stack Software Engineer with 6+ years of experience building scalable web and mobile applications.',
+  },
+  robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

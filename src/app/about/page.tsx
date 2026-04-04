@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'Full Stack Software Engineer with 6+ years of experience building scalable web and mobile applications.',
+  openGraph: {
+    url: '/about',
+    title: 'About — Eslam Mahmoud',
+    description:
+      'Full Stack Software Engineer with 6+ years of experience. Currently Senior Engineer at VOIS (Vodafone Intelligent Solutions).',
+  },
 }
 
 export default function AboutPage() {
