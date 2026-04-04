@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+
+import { Toast } from '@/components/ui/Toast'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -37,6 +39,8 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [touched, setTouched] = useState<Partial<Record<keyof FormFields, boolean>>>({})
   const [status, setStatus] = useState<FormState>('idle')
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
+  const dismissToast = useCallback(() => setToast(null), [])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target
@@ -75,8 +79,13 @@ export function ContactForm() {
       setFields(EMPTY)
       setTouched({})
       setErrors({})
+      setToast({ type: 'success', message: "Message sent! I'll get back to you soon." })
     } catch {
       setStatus('error')
+      setToast({
+        type: 'error',
+        message: 'Something went wrong. Please try again or email me directly.',
+      })
     }
   }
 
@@ -150,16 +159,7 @@ export function ContactForm() {
         {status === 'submitting' ? 'Sending…' : 'Send Message'}
       </button>
 
-      {status === 'success' && (
-        <p className="rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700 dark:bg-green-950/30 dark:text-green-400">
-          Message sent! I&apos;ll get back to you soon.
-        </p>
-      )}
-      {status === 'error' && (
-        <p className="rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-700 dark:bg-red-950/30 dark:text-red-400">
-          Something went wrong. Please try again or email me directly.
-        </p>
-      )}
+      {toast && <Toast type={toast.type} message={toast.message} onClose={dismissToast} />}
     </form>
   )
 }
