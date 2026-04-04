@@ -1,38 +1,6 @@
 import Link from 'next/link'
 
-import { type Project } from '@/types/project'
-
-const FEATURED_PROJECTS: Project[] = [
-  {
-    slug: 'project-one',
-    title: 'Project One',
-    description:
-      'A full-stack web application built with Next.js, TypeScript, and PostgreSQL. Focuses on performance and accessibility.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
-    githubUrl: 'https://github.com/espython',
-    liveUrl: '#',
-    featured: true,
-  },
-  {
-    slug: 'project-two',
-    title: 'Project Two',
-    description:
-      'An open-source CLI tool that automates repetitive development tasks and integrates with popular CI/CD pipelines.',
-    tags: ['Node.js', 'CLI', 'CI/CD'],
-    githubUrl: 'https://github.com/espython',
-    featured: true,
-  },
-  {
-    slug: 'project-three',
-    title: 'Project Three',
-    description:
-      'A real-time dashboard for monitoring system metrics, built with WebSockets and React.',
-    tags: ['React', 'WebSockets', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/espython',
-    liveUrl: '#',
-    featured: true,
-  },
-]
+import { featuredProjects } from '@/data/projects'
 
 export function FeaturedProjects() {
   return (
@@ -55,7 +23,7 @@ export function FeaturedProjects() {
       </div>
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {FEATURED_PROJECTS.map((project) => (
+        {featuredProjects.map((project) => (
           <li
             key={project.slug}
             className="flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-shadow hover:shadow-md"
