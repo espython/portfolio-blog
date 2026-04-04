@@ -14,11 +14,9 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+      - run: npm install -g netlify-cli
+      - name: Deploy to Netlify (production)
+        run: netlify deploy --build --prod --message "Deploy from main (${{ github.sha }})"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

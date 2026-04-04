@@ -29,7 +29,7 @@ export function Navbar() {
           href="/"
           className="text-lg font-bold text-[var(--color-primary)] transition-opacity hover:opacity-80"
         >
-          YourName.dev
+          espython.dev
         </Link>
 
         {/* Desktop links */}
