@@ -1,14 +1,18 @@
 import { type Metadata } from 'next'
 
+import { ExperienceTimeline } from '@/components/about/ExperienceTimeline'
+
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn more about who I am, what I do, and the tools I work with.',
+  description:
+    'Full Stack Software Engineer with 6+ years of experience building scalable web and mobile applications.',
 }
 
 export default function AboutPage() {
   return (
     <main>
       <HeroBio />
+      <ExperienceTimeline />
     </main>
   )
 }
