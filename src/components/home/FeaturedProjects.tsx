@@ -1,13 +1,6 @@
 import Link from 'next/link'
 
-interface Project {
-  slug: string
-  title: string
-  description: string
-  tags: string[]
-  githubUrl?: string
-  liveUrl?: string
-}
+import { type Project } from '@/types/project'
 
 const FEATURED_PROJECTS: Project[] = [
   {
@@ -18,6 +11,7 @@ const FEATURED_PROJECTS: Project[] = [
     tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
     githubUrl: 'https://github.com/espython',
     liveUrl: '#',
+    featured: true,
   },
   {
     slug: 'project-two',
@@ -26,6 +20,7 @@ const FEATURED_PROJECTS: Project[] = [
       'An open-source CLI tool that automates repetitive development tasks and integrates with popular CI/CD pipelines.',
     tags: ['Node.js', 'CLI', 'CI/CD'],
     githubUrl: 'https://github.com/espython',
+    featured: true,
   },
   {
     slug: 'project-three',
@@ -35,6 +30,7 @@ const FEATURED_PROJECTS: Project[] = [
     tags: ['React', 'WebSockets', 'Tailwind CSS'],
     githubUrl: 'https://github.com/espython',
     liveUrl: '#',
+    featured: true,
   },
 ]
 
