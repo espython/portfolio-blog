@@ -1,12 +1,6 @@
 import Link from 'next/link'
 
-interface PostMeta {
-  slug: string
-  title: string
-  date: string
-  summary: string
-  tags: string[]
-}
+import { type PostMeta } from '@/types/post'
 
 const LATEST_POSTS: PostMeta[] = [
   {
