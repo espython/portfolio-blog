@@ -23,9 +23,9 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
           <span>·</span>
           <span>{post.readingTime} min read</span>
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
+        <h2 className="mb-2 text-lg font-semibold text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
           {post.title}
-        </h3>
+        </h2>
         <p className="flex-1 text-sm leading-relaxed text-[var(--color-text-muted)]">
           {post.summary}
         </p>
