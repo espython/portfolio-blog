@@ -18,6 +18,7 @@ export default function AboutPage() {
   return (
     <main>
       <HeroBio />
+      <Skills />
       <ExperienceTimeline />
     </main>
   )
@@ -93,6 +94,94 @@ function HeroBio() {
               Download CV
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const SKILL_GROUPS = [
+  {
+    label: 'Frontend',
+    skills: [
+      'TypeScript',
+      'JavaScript',
+      'React.js',
+      'Next.js',
+      'React Native',
+      'Redux',
+      'TailwindCSS',
+      'Material-UI',
+      'HTML & CSS',
+    ],
+  },
+  {
+    label: 'Backend',
+    skills: [
+      'Node.js',
+      'Express.js',
+      'Nest.js',
+      'Java',
+      'Spring / Quarkus',
+      'C# / ASP.NET',
+      'Python',
+      'GraphQL',
+    ],
+  },
+  {
+    label: 'Cloud & DevOps',
+    skills: [
+      'AWS (Lambda, EC2, S3, RDS, CloudFront, ECS, SES…)',
+      'Azure',
+      'Google Cloud Platform',
+      'GitHub Actions',
+      'CloudFormation',
+      'CI/CD',
+    ],
+  },
+  {
+    label: 'Databases',
+    skills: ['PostgreSQL', 'MongoDB', 'MSSQL', 'DynamoDB'],
+  },
+  {
+    label: 'Testing & Performance',
+    skills: ['Jest', 'Mocha', 'Code Splitting', 'Lazy Loading', 'Memoization'],
+  },
+  {
+    label: 'Security & Auth',
+    skills: ['JWT', 'OAuth', 'AWS IAM', 'Azure Active Directory'],
+  },
+]
+
+function Skills() {
+  return (
+    <section className="bg-[var(--color-bg-subtle)]">
+      <div className="mx-auto max-w-4xl px-6 py-20">
+        <p className="mb-2 text-sm font-medium tracking-widest text-[var(--color-primary)] uppercase">
+          Tech Stack
+        </p>
+        <h2 className="mb-10 text-3xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-4xl">
+          Skills &amp; Technologies
+        </h2>
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {SKILL_GROUPS.map((group) => (
+            <div key={group.label}>
+              <h3 className="mb-3 text-xs font-semibold tracking-widest text-[var(--color-primary)] uppercase">
+                {group.label}
+              </h3>
+              <ul className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="rounded-md bg-[var(--color-surface)] px-3 py-1.5 text-sm font-medium text-[var(--color-text-muted)] ring-1 ring-[var(--color-border)]"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
