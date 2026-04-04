@@ -2,49 +2,49 @@ import { type Project } from '@/types/project'
 
 export const projects: Project[] = [
   {
-    slug: 'project-one',
-    title: 'Project One',
+    slug: 'strapi-firebase-auth',
+    title: 'Strapi Firebase Auth',
     description:
-      'A full-stack web application built with Next.js, TypeScript, and PostgreSQL. Focuses on performance and accessibility.',
+      'Open-source Strapi plugin that integrates Firebase Authentication — supports social providers, custom tokens, and role syncing.',
     longDescription:
-      'This project was born out of a need to manage complex data workflows in a team environment. It features role-based access control, real-time updates via Server-Sent Events, and a fully accessible UI built to WCAG 2.1 AA standards.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
-    githubUrl: 'https://github.com/espython',
-    liveUrl: '#',
-    featured: true,
-    coverImage: '/images/projects/project-one.png',
-  },
-  {
-    slug: 'project-two',
-    title: 'Project Two',
-    description:
-      'An open-source CLI tool that automates repetitive development tasks and integrates with popular CI/CD pipelines.',
-    longDescription:
-      'Built to eliminate the boilerplate overhead in day-to-day development. Supports plugins, custom templates, and hooks. Integrates with GitHub Actions, GitLab CI, and CircleCI out of the box.',
-    tags: ['Node.js', 'CLI', 'CI/CD'],
-    githubUrl: 'https://github.com/espython',
+      'Published on the official Strapi Marketplace. Enables Firebase Authentication in any Strapi v4 application. Supports multiple social providers (Google, Facebook, Apple), custom token flows, and automatic Strapi role assignment based on Firebase claims. Used by teams who need a headless CMS with a modern auth layer without rolling their own.',
+    tags: ['Node.js', 'Strapi', 'Firebase', 'Open Source'],
+    githubUrl: 'https://github.com/swensonhe/strapi-firebase-auth',
+    liveUrl: 'https://market.strapi.io/plugins/@swensonhe-strapi-plugin-firebase-auth',
     featured: true,
   },
   {
-    slug: 'project-three',
-    title: 'Project Three',
+    slug: 'mcmakler',
+    title: 'McMakler',
     description:
-      'A real-time dashboard for monitoring system metrics, built with WebSockets and React.',
+      "Germany's leading digital real estate platform — connecting buyers, sellers, and agents through a seamless online experience.",
     longDescription:
-      'Streams live CPU, memory, and network metrics from a Node.js agent to a React dashboard over WebSockets. Supports configurable alerting thresholds and historical charting.',
-    tags: ['React', 'WebSockets', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/espython',
-    liveUrl: '#',
+      "McMakler is one of Germany's largest PropTech companies, offering a hybrid real estate service that combines an online platform with local agents. Contributed to the platform's web frontend, focusing on listing search, property detail pages, and agent-facing tools.",
+    tags: ['React', 'TypeScript', 'Web'],
+    liveUrl: 'https://www.mcmakler.de/',
     featured: true,
   },
   {
-    slug: 'project-four',
-    title: 'Project Four',
-    description: 'A markdown-based static site generator with a focus on developer experience.',
+    slug: 'do365',
+    title: 'do365',
+    description:
+      'Cloud-based template management for Office 365 — Word, Outlook, PowerPoint, and Excel — built with React, Node.js, C#, and .NET.',
     longDescription:
-      'A lightweight static site generator that transforms Markdown + frontmatter into a production-ready site. Supports custom themes, syntax highlighting, and incremental builds.',
-    tags: ['TypeScript', 'Markdown', 'Node.js'],
-    githubUrl: 'https://github.com/espython',
+      'do365 lets organisations manage, distribute, and enforce branded document templates across Office 365 apps. The system integrates with Microsoft Graph to push templates directly into users&apos; Office applications. Built with a React frontend, Node.js API layer, and a C#/.NET backend handling authentication and template rendering.',
+    tags: ['React', 'Node.js', 'C#', '.NET', 'Office 365'],
+    liveUrl: 'https://www.do365.nl',
+    featured: true,
+  },
+  {
+    slug: 'portfolio-blog',
+    title: 'espython.dev',
+    description:
+      'This site — a portfolio and blog built with Next.js 16, TypeScript, Tailwind CSS v4, and Netlify.',
+    longDescription:
+      'Designed and built from scratch with a focus on performance and accessibility. Features a statically generated blog backed by Markdown files, dynamic OG images, a contact form powered by Resend, and a perfect Lighthouse score across all pages.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Netlify'],
+    githubUrl: 'https://github.com/espython/portfolio-blog',
+    liveUrl: 'https://espython.dev',
     featured: false,
   },
 ]
