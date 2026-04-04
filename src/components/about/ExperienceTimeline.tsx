@@ -9,20 +9,21 @@ interface Role {
 
 const EXPERIENCE: Role[] = [
   {
-    title: 'Senior Software Engineer',
+    title: 'Senior Full Stack Software Engineer',
     company: 'VOIS (Vodafone Intelligent Solutions)',
-    period: 'Present',
+    period: 'Nov 2025 – Present',
     location: 'Remote',
     highlights: [
-      'Building scalable enterprise-grade applications in a cross-functional agile team.',
-      'Leading frontend architecture decisions and conducting code reviews.',
+      'Building enterprise-scale web applications using React, Next.js, and Node.js within cross-functional agile teams.',
+      'Developing Java microservices with Spring and Quarkus frameworks for high-throughput backend systems.',
+      'Contributing across the full stack — TypeScript/React frontends through to Java/Node.js backend services.',
     ],
-    tags: ['TypeScript', 'React.js', 'Node.js'],
+    tags: ['TypeScript', 'React.js', 'Next.js', 'Node.js', 'Java', 'Spring', 'Quarkus'],
   },
   {
     title: 'Senior Frontend Engineer',
     company: 'InVitro Capital',
-    period: 'Nov 2024 – Present',
+    period: 'Nov 2024 – Nov 2025',
     location: 'Irvine, CA — Remote',
     highlights: [
       'Architected complex, performant React/TypeScript applications with advanced state management.',
