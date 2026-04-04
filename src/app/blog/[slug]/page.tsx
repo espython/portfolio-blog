@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { type Metadata } from 'next'
 
-import { getAllPostSlugs, getPostBySlug } from '@/lib/posts'
+import { getAllPostSlugs, getAdjacentPosts, getPostBySlug } from '@/lib/posts'
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }))
@@ -35,6 +35,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = await getPostBySlug(slug)
 
   if (!post) notFound()
+
+  const { prev, next } = getAdjacentPosts(slug)
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-20">
@@ -69,6 +71,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         className="prose prose-neutral max-w-none dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      <nav className="mt-16 flex items-center justify-between gap-4 border-t border-[var(--color-border)] pt-8">
+        <div className="flex-1">
+          {prev && (
+            <Link href={`/blog/${prev.slug}`} className="group flex flex-col gap-1 text-sm">
+              <span className="text-[var(--color-text-subtle)]">← Previous</span>
+              <span className="font-medium text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
+                {prev.title}
+              </span>
+            </Link>
+          )}
+        </div>
+        <div className="flex-1 text-right">
+          {next && (
+            <Link href={`/blog/${next.slug}`} className="group flex flex-col gap-1 text-sm">
+              <span className="text-[var(--color-text-subtle)]">Next →</span>
+              <span className="font-medium text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
+                {next.title}
+              </span>
+            </Link>
+          )}
+        </div>
+      </nav>
     </main>
   )
 }
