@@ -1,9 +1,17 @@
 import { type Metadata } from 'next'
 
+import { ExperienceTimeline } from '@/components/about/ExperienceTimeline'
+
 export const metadata: Metadata = {
   title: 'About',
   description:
     'Full Stack Software Engineer with 6+ years of experience building scalable web and mobile applications.',
+  openGraph: {
+    url: '/about',
+    title: 'About — Eslam Mahmoud',
+    description:
+      'Full Stack Software Engineer with 6+ years of experience. Currently Senior Engineer at VOIS (Vodafone Intelligent Solutions).',
+  },
 }
 
 export default function AboutPage() {
@@ -11,6 +19,7 @@ export default function AboutPage() {
     <main>
       <HeroBio />
       <Skills />
+      <ExperienceTimeline />
     </main>
   )
 }
@@ -30,22 +39,24 @@ function HeroBio() {
             About Me
           </p>
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-5xl">
-            Hi, I&apos;m <span className="text-[var(--color-primary)]">Eslam Mahmoud</span>
+            Hi, I&apos;m <span className="text-[var(--color-primary)]">Eslam</span>
           </h1>
           <div className="space-y-4 text-lg leading-relaxed text-[var(--color-text-muted)]">
             <p>
-              I&apos;m a Full Stack Software Engineer based in Luxor, Egypt, with 6+ years of
-              experience building robust, scalable, and secure web and mobile applications.
-              Currently working as a Senior Software Engineer at VOIS (Vodafone Intelligent
-              Solutions).
+              I&apos;m a Senior Full Stack Engineer based in Luxor, Egypt, with 6+ years of
+              experience building scalable web and mobile applications. I work primarily with
+              TypeScript, React, Node.js, and AWS — and I care deeply about clean architecture,
+              performance, and great developer experience.
             </p>
             <p>
-              I specialize in TypeScript, React, and Node.js on the frontend and backend, with deep
-              expertise in AWS cloud architecture, microservices, and serverless systems. I care
-              about performance, clean code, and delivering exceptional user experiences.
+              Currently at VOIS (Vodafone Intelligent Solutions), where I work on large-scale web
+              products. Previously I&apos;ve built platforms at InVitro Capital, Swenson He,
+              DotOffice, HyperList, and ADRI — shipping everything from real estate marketplaces and
+              SaaS dashboards to open-source developer tooling.
             </p>
             <p>
-              I&apos;m passionate about solving hard problems and sharing what I learn. Feel free to{' '}
+              Outside of work I write about things I&apos;ve learned, contribute to open source, and
+              explore new tools that make development more enjoyable. Feel free to{' '}
               <a
                 href="/contact"
                 className="font-medium text-[var(--color-primary)] underline underline-offset-4 transition-colors hover:text-[var(--color-primary-hover)]"
@@ -67,7 +78,7 @@ function HeroBio() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/eslam-mahmoud-a63b06116"
+              href="https://www.linkedin.com/in/eslam-mahmoud-a63b06116/"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-[var(--color-border)] px-4 py-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
@@ -75,10 +86,12 @@ function HeroBio() {
               LinkedIn
             </a>
             <a
-              href="mailto:espython85@gmail.com"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-lg bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-primary-hover)]"
             >
-              Email Me
+              Download CV
             </a>
           </div>
         </div>
@@ -104,7 +117,16 @@ const SKILL_GROUPS = [
   },
   {
     label: 'Backend',
-    skills: ['Node.js', 'Express.js', 'Nest.js', 'C# / ASP.NET', 'Python', 'Java', 'GraphQL'],
+    skills: [
+      'Node.js',
+      'Express.js',
+      'Nest.js',
+      'Java',
+      'Spring / Quarkus',
+      'C# / ASP.NET',
+      'Python',
+      'GraphQL',
+    ],
   },
   {
     label: 'Cloud & DevOps',

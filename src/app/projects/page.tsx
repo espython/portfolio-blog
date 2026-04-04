@@ -6,6 +6,12 @@ import { projects } from '@/data/projects'
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'A collection of projects I have built.',
+  openGraph: {
+    url: '/projects',
+    title: 'Projects — Eslam Mahmoud',
+    description:
+      'Full-stack and open-source projects built with React, Node.js, TypeScript, and AWS.',
+  },
 }
 
 export default function ProjectsPage() {
