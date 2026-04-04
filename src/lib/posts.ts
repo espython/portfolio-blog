@@ -73,3 +73,18 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 export function getAllPostSlugs(): string[] {
   return getPostFiles().map((f) => f.replace(/\.md$/, ''))
 }
+
+export function getAdjacentPosts(slug: string): {
+  prev: Pick<PostMeta, 'slug' | 'title'> | null
+  next: Pick<PostMeta, 'slug' | 'title'> | null
+} {
+  const posts = getAllPostsMeta()
+  const index = posts.findIndex((p) => p.slug === slug)
+  return {
+    prev:
+      index < posts.length - 1
+        ? { slug: posts[index + 1].slug, title: posts[index + 1].title }
+        : null,
+    next: index > 0 ? { slug: posts[index - 1].slug, title: posts[index - 1].title } : null,
+  }
+}
