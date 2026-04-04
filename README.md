@@ -1,36 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# espython.dev — Portfolio & Blog
 
-## Getting Started
+Personal portfolio and blog of Eslam Mahmoud, built with Next.js, TypeScript, and Tailwind CSS v4.
 
-First, run the development server:
+## Tech stack
+
+- **Framework** — Next.js 16 (App Router)
+- **Language** — TypeScript
+- **Styling** — Tailwind CSS v4 (CSS-first config)
+- **Content** — Markdown files with gray-matter + unified/rehype pipeline
+- **Email** — Resend
+- **Deployment** — Netlify (`@netlify/plugin-nextjs`)
+
+## Local setup
+
+**Prerequisites:** Node.js ≥ 22, npm
 
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file at the project root:
 
-## Learn More
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+RESEND_API_KEY=re_...
+CONTACT_TO_EMAIL=your@email.com
+```
 
-To learn more about Next.js, take a look at the following resources:
+| Variable               | Required | Description                                                             |
+| ---------------------- | -------- | ----------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | Yes      | Canonical base URL (used in sitemap and OG images)                      |
+| `RESEND_API_KEY`       | Yes      | API key from [resend.com](https://resend.com) — powers the contact form |
+| `CONTACT_TO_EMAIL`     | Yes      | Email address that receives contact form submissions                    |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Folder structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/                     # Next.js App Router pages and layouts
+│   ├── layout.tsx           # Root layout (fonts, metadata defaults, dark-mode)
+│   ├── page.tsx             # Homepage (Hero + LatestPosts + FeaturedProjects + CTA)
+│   ├── about/page.tsx       # About page (bio, skills, experience timeline)
+│   ├── blog/
+│   │   ├── page.tsx         # Blog listing
+│   │   └── [slug]/page.tsx  # Individual post (rendered via unified pipeline)
+│   ├── projects/
+│   │   ├── page.tsx         # Projects listing
+│   │   └── [slug]/page.tsx  # Project detail
+│   ├── contact/page.tsx     # Contact form
+│   ├── api/contact/route.ts # POST handler — sends email via Resend
+│   ├── opengraph-image.tsx  # Default OG image (edge runtime)
+│   ├── sitemap.ts           # Dynamic sitemap
+│   └── robots.ts            # robots.txt
+├── components/              # React components, co-located by feature
+├── data/projects.ts         # Static project data
+├── lib/posts.ts             # Markdown parsing utilities
+└── types/                   # Shared TypeScript types
+posts/                       # Blog post Markdown files
+```
 
-## Deploy on Vercel
+## How to add a blog post
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a new file in `posts/` using kebab-case: `posts/my-new-post.md`
+2. Add the required frontmatter:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```markdown
+---
+title: My New Post
+date: '2026-05-01'
+summary: A one-sentence description shown in the post card and meta tags.
+tags:
+  - Tag One
+  - Tag Two
+---
+
+Your post content here. Markdown and fenced code blocks are fully supported.
+```
+
+3. The post is statically generated at `/blog/my-new-post` on the next build. No other files need to be touched.
+
+**Frontmatter fields:**
+
+| Field     | Required | Description                                   |
+| --------- | -------- | --------------------------------------------- |
+| `title`   | Yes      | Post title                                    |
+| `date`    | Yes      | ISO date string (`YYYY-MM-DD`)                |
+| `summary` | Yes      | Short description (used in cards and OG meta) |
+| `tags`    | No       | Array of tag strings                          |
+
+## How to add a project
+
+Edit `src/data/projects.ts` and append an entry to the `projects` array:
+
+```ts
+{
+  slug: 'my-project',           // URL: /projects/my-project
+  title: 'My Project',
+  description: 'Short description shown in the card.',
+  longDescription: 'Optional longer description for the detail page.',
+  tags: ['React', 'TypeScript'],
+  githubUrl: 'https://github.com/...',
+  liveUrl: 'https://...',
+  featured: true,               // Show on homepage FeaturedProjects section
+}
+```
+
+## Scripts
+
+| Command         | Description                  |
+| --------------- | ---------------------------- |
+| `npm run dev`   | Start development server     |
+| `npm run build` | Production build             |
+| `npm start`     | Run production build locally |
+| `npm run lint`  | Run ESLint                   |
+
+## Deployment
+
+The site deploys automatically to Netlify via GitHub Actions.
+
+- **Production** — merges to `main` trigger a production deploy
+- **Previews** — pull requests get a preview URL posted as a PR comment
+
+### Manual deploy
+
+```bash
+# Requires Netlify CLI and the env vars below set
+npm run build
+npx netlify deploy --build --prod
+```
+
+### Required GitHub secrets
+
+| Secret                 | Description                                  |
+| ---------------------- | -------------------------------------------- |
+| `NETLIFY_AUTH_TOKEN`   | Personal access token from Netlify           |
+| `NETLIFY_SITE_ID`      | Site API ID from Netlify site settings       |
+| `RESEND_API_KEY`       | Resend API key                               |
+| `CONTACT_TO_EMAIL`     | Email address for contact form delivery      |
+| `NEXT_PUBLIC_SITE_URL` | Production URL (e.g. `https://espython.dev`) |
