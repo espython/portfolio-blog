@@ -38,21 +38,24 @@ function HeroBio() {
             About Me
           </p>
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-5xl">
-            Hi, I&apos;m <span className="text-[var(--color-primary)]">YourName</span>
+            Hi, I&apos;m <span className="text-[var(--color-primary)]">Eslam</span>
           </h1>
           <div className="space-y-4 text-lg leading-relaxed text-[var(--color-text-muted)]">
             <p>
-              I&apos;m a full-stack developer based in —, passionate about building fast, accessible
-              web experiences. I work primarily with TypeScript, React, and Node.js, and I care
-              deeply about clean code and great developer experience.
+              I&apos;m a Senior Full Stack Engineer based in Luxor, Egypt, with 6+ years of
+              experience building scalable web and mobile applications. I work primarily with
+              TypeScript, React, Node.js, and AWS — and I care deeply about clean architecture,
+              performance, and great developer experience.
             </p>
             <p>
-              When I&apos;m not coding, you&apos;ll find me writing about things I&apos;ve learned,
-              contributing to open source, or exploring new tools that make development more
-              enjoyable.
+              Currently at VOIS (Vodafone Intelligent Solutions), where I work on large-scale web
+              products. Previously I&apos;ve built platforms at InVitro Capital, Swenson He,
+              DotOffice, HyperList, and ADRI — shipping everything from real estate marketplaces and
+              SaaS dashboards to open-source developer tooling.
             </p>
             <p>
-              I&apos;m currently open to new opportunities — feel free to{' '}
+              Outside of work I write about things I&apos;ve learned, contribute to open source, and
+              explore new tools that make development more enjoyable. Feel free to{' '}
               <a
                 href="/contact"
                 className="font-medium text-[var(--color-primary)] underline underline-offset-4 transition-colors hover:text-[var(--color-primary-hover)]"
@@ -74,7 +77,7 @@ function HeroBio() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/yourname"
+              href="https://www.linkedin.com/in/eslam-mahmoud-a63b06116/"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-[var(--color-border)] px-4 py-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"

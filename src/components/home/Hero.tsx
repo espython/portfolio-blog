@@ -8,13 +8,14 @@ export function Hero() {
       </p>
 
       <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-[var(--color-text)] sm:text-5xl md:text-6xl">
-        YourName
-        <span className="block text-[var(--color-primary)]">Full-Stack Developer</span>
+        Eslam Mahmoud
+        <span className="block text-[var(--color-primary)]">Full Stack Engineer</span>
       </h1>
 
       <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)]">
-        I build fast, accessible web applications with modern tools. Passionate about clean code,
-        great UX, and sharing what I learn.
+        Senior Full Stack Engineer with 6+ years building scalable web applications. I work across
+        the stack with TypeScript, React, Node.js, and AWS — and care deeply about clean
+        architecture, performance, and developer experience.
       </p>
 
       <div className="flex flex-wrap gap-4 pt-2">
@@ -43,21 +44,12 @@ export function Hero() {
         </a>
         <span className="text-[var(--color-border)]">·</span>
         <a
-          href="https://linkedin.com/in/yourname"
+          href="https://www.linkedin.com/in/eslam-mahmoud-a63b06116/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm text-[var(--color-text-subtle)] transition-colors hover:text-[var(--color-primary)]"
         >
           LinkedIn
-        </a>
-        <span className="text-[var(--color-border)]">·</span>
-        <a
-          href="https://twitter.com/yourname"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-[var(--color-text-subtle)] transition-colors hover:text-[var(--color-primary)]"
-        >
-          Twitter
         </a>
       </div>
     </section>
