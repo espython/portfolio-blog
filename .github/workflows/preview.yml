@@ -1,8 +1,8 @@
-name: Vercel Preview Deployment
+name: Netlify Preview Deployment
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   preview:
@@ -15,11 +15,14 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
-      - name: Deploy Preview to Vercel
-        uses: amondnet/vercel-action@v25
+      - name: Deploy Preview to Netlify
+        uses: nwtgck/actions-netlify@v3
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          publish-dir: .next
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          github-comment: true
+          deploy-message: "PR #${{ github.event.pull_request.number }} — ${{ github.event.pull_request.title }}"
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
