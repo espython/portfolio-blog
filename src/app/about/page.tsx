@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import Image from 'next/image'
 
 import { ExperienceTimeline } from '@/components/about/ExperienceTimeline'
 
@@ -28,9 +29,16 @@ function HeroBio() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-20">
       <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
-        {/* Avatar placeholder */}
+        {/* Avatar */}
         <div className="shrink-0">
-          <div className="h-36 w-36 rounded-2xl bg-[var(--color-bg-subtle)] ring-4 ring-[var(--color-border)] md:h-44 md:w-44" />
+          <Image
+            src="/avatar.png"
+            alt="Eslam Mahmoud"
+            width={176}
+            height={176}
+            className="h-36 w-36 rounded-2xl object-cover object-top ring-4 ring-[var(--color-border)] md:h-44 md:w-44"
+            priority
+          />
         </div>
 
         {/* Bio */}
